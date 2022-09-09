@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mesh-frontend
+  name: frontend
   labels:
     app: mesh
 spec:
@@ -15,7 +15,8 @@ spec:
         app: mesh
     spec:
       containers:
-        - name: mesh
-          image: mesh-frontend:latest
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80

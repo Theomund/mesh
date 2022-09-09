@@ -4,16 +4,26 @@ metadata:
   name: mesh
 build:
   artifacts:
-  - image: mesh-backend
+  - image: backend
     context: backend
     docker:
       dockerfile: Dockerfile
-  - image: mesh-frontend
+  - image: frontend
     context: frontend
     docker:
       dockerfile: Dockerfile
 deploy:
-  kubectl:
-    manifests:
-    - backend/kubernetes/deployment.yaml
-    - frontend/kubernetes/deployment.yaml
+  helm:
+    releases:
+      - name: backend
+        chartPath: backend/helm
+        artifactOverrides:
+          image: backend
+        imageStrategy:
+          helm: {}
+      - name: frontend
+        chartPath: frontend/helm
+        artifactOverrides:
+          image: frontend
+        imageStrategy:
+          helm: {}
