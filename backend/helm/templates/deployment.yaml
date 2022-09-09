@@ -1,22 +1,23 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: {{ .Release.Name }}
   labels:
-    app: mesh
+    app: {{ .Release.Name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: mesh
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: mesh
+        app: {{ .Release.Name }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 80
+            - containerPort: 3000
