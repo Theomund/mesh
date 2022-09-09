@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mesh-backend
+  labels:
+    app: mesh
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mesh
+  template:
+    metadata:
+      labels:
+        app: mesh
+    spec:
+      containers:
+        - name: mesh
+          image: mesh-backend:latest
+          ports:
+            - containerPort: 80

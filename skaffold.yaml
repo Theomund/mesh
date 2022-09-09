@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: mesh
+build:
+  artifacts:
+  - image: mesh-backend
+    context: backend
+    docker:
+      dockerfile: Dockerfile
+  - image: mesh-frontend
+    context: frontend
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - backend/kubernetes/deployment.yaml
+    - frontend/kubernetes/deployment.yaml
