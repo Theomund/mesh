@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import {
     Box,
     Button,
@@ -11,13 +10,17 @@ import {
     Stack,
     useColorModeValue
 } from "@chakra-ui/react";
+import {GiMeshNetwork} from "react-icons/gi";
+import {IconContext} from "react-icons";
 
 function App() {
     return (
         <Container maxW="lg" py="24" px="8">
             <Stack textAlign="center" spacing="8">
                 <Stack>
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <IconContext.Provider value={{color: "#61DAFB", size: "md"}}>
+                        <GiMeshNetwork/>
+                    </IconContext.Provider>
                     <Heading>Mesh</Heading>
                 </Stack>
                 <Box py="8" px="10" bg="bg-surface" boxShadow={useColorModeValue('md', 'md-dark')} borderRadius="xl">
