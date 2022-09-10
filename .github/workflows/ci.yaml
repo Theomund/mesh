@@ -5,6 +5,10 @@ jobs:
     name: Skaffold Build
     runs-on: ubuntu-20.04
     steps:
+      - name: Retrieve Github Secret
+        uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout Source Repository
         uses: actions/checkout@v3
       - name: Build Container Images
