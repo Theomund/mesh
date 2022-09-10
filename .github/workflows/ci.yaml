@@ -3,16 +3,20 @@ on: [push]
 jobs:
   pipeline:
     name: Skaffold Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Retrieve Github Secret
-        uses: actions/labeler@v4
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout Source Repository
         uses: actions/checkout@v3
-      - name: Build Container Images
-        uses: hiberbee/github-action-skaffold@1.23.0
+      - name: Login to Container Registry
+        uses: docker/login-action@v2
         with:
-          command: build
-          repository: ghcr.io/${{ github.repository }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Skaffold
+        run: |
+          curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
+          sudo install skaffold /usr/local/bin/
+          skaffold version
+      - name: Build Container Images
+        run: skaffold build
