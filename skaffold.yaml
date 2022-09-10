@@ -4,14 +4,14 @@ metadata:
   name: mesh
 build:
   artifacts:
-  - image: backend
-    context: backend
-    docker:
-      dockerfile: Dockerfile
-  - image: frontend
-    context: frontend
-    docker:
-      dockerfile: Dockerfile
+    - image: backend
+      context: backend
+      docker:
+        dockerfile: Dockerfile
+    - image: frontend
+      context: frontend
+      docker:
+        dockerfile: Dockerfile
 deploy:
   helm:
     releases:
@@ -23,4 +23,4 @@ deploy:
           frontend:
             image: frontend
         imageStrategy:
-          helm: {}
+          helm: { }
