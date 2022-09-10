@@ -15,15 +15,12 @@ build:
 deploy:
   helm:
     releases:
-      - name: backend
-        chartPath: backend/helm
+      - name: mesh
+        chartPath: chart
         artifactOverrides:
-          image: backend
-        imageStrategy:
-          helm: {}
-      - name: frontend
-        chartPath: frontend/helm
-        artifactOverrides:
-          image: frontend
+          backend:
+            image: backend
+          frontend:
+            image: frontend
         imageStrategy:
           helm: {}

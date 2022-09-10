@@ -1,4 +1,4 @@
-FROM node:18.9.0 AS frontend
+FROM docker.io/library/node:18.9.0
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install

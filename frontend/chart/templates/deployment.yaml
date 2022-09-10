@@ -2,22 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Chart.Name }}-deployment
   labels:
-    app: {{ .Release.Name }}
+    app: {{ .Chart.Name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ .Chart.Name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: frontend
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 3000
