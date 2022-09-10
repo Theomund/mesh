@@ -11,3 +11,4 @@ jobs:
         uses: hiberbee/github-action-skaffold@1.23.0
         with:
           command: build
+          repository: ghcr.io/${{ github.repository }}
