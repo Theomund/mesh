@@ -19,4 +19,4 @@ jobs:
           sudo install skaffold /usr/local/bin/
           skaffold version
       - name: Build Container Images
-        run: skaffold build
+        run: skaffold build --default-repo ghcr.io/${{ github.actor }}
