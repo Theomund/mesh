@@ -20,13 +20,7 @@ function App() {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <Heading>Mesh</Heading>
                 </Stack>
-                <Box
-                    py="8"
-                    px="10"
-                    bg="bg-surface"
-                    boxShadow={useColorModeValue('md', 'md-dark')}
-                    borderRadius="xl"
-                >
+                <Box py="8" px="10" bg="bg-surface" boxShadow={useColorModeValue('md', 'md-dark')} borderRadius="xl">
                     <Stack spacing="8">
                         <Stack>
                             <FormControl>
