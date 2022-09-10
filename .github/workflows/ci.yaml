@@ -1,9 +1,5 @@
 name: Mesh CI/CD
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+on: [push]
 jobs:
   pipeline:
     name: Skaffold Build
