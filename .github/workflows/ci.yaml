@@ -1,5 +1,5 @@
 name: Mesh CI/CD
-on: [push]
+on: [ push ]
 jobs:
   pipeline:
     name: Skaffold Build

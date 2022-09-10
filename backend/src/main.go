@@ -1,18 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"net/http"
 )
 
-func forever() {
-	for {
-		fmt.Println(time.Now().UTC())
-		time.Sleep(time.Second)
-	}
+func main() {
+	e := echo.New()
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	e.GET("/", hello)
+	e.Logger.Fatal(e.Start("localhost:3000"))
 }
 
-func main() {
-	go forever()
-	select {}
+func hello(c echo.Context) error {
+	return c.String(http.StatusOK, "Hello, World!")
 }
