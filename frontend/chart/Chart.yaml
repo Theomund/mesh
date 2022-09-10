@@ -1,6 +1,6 @@
 apiVersion: v2
-name: backend
-description: Backend component of the network topology simulator
+name: frontend
+description: Frontend component of the network topology simulator
 
 # A chart can be either an 'application' or a 'library' chart.
 #

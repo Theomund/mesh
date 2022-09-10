@@ -6,4 +6,4 @@ dependencies:
   repository: file://../frontend/chart
   version: 0.0.1
 digest: sha256:f8b23735ad39e829a66c68fff5f2827ed8defd403badde71da0d0552631c40fe
-generated: "2022-09-10T02:11:40.139708821-04:00"
+generated: "2022-09-10T02:39:41.470911964-04:00"

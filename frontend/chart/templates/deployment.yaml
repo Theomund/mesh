@@ -16,7 +16,7 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
-        - name: backend
+        - name: frontend
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 3000
