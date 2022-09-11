@@ -1,19 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import '@fontsource/inter';
-
-const customTheme = extendTheme({
-  fonts: {
-    body: "Inter",
-    heading: "Inter",
-  },
-})
+import { ChakraProvider } from '@chakra-ui/react'
+import '@fontsource/inter'
+import theme from './theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={customTheme}>
-      <Component {...pageProps} />
+    <ChakraProvider theme={ theme }>
+      <Component { ...pageProps } />
     </ChakraProvider>
   )
 }

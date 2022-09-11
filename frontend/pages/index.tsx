@@ -1,20 +1,20 @@
 import type { NextPage } from 'next'
 import {
-  Box, Button,
+  Box, Button, Checkbox,
   Container,
   FormControl,
   FormLabel,
-  Heading, IconButton, Input,
+  Heading, HStack, IconButton, Input,
   InputGroup,
   InputLeftElement, InputRightElement,
-  Stack,
-  useColorModeValue
+  Stack, useColorMode, useColorModeValue
 } from '@chakra-ui/react'
 import { GiMeshNetwork } from 'react-icons/gi'
-import { FaEye, FaLock, FaUser } from 'react-icons/fa'
+import { FaEye, FaLock, FaMoon, FaUser } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 
 const Home: NextPage = () => {
+  const { toggleColorMode } = useColorMode()
   return (
     <Container maxW='lg' py='24' px='8'>
       <Stack textAlign='center' spacing='8'>
@@ -44,12 +44,15 @@ const Home: NextPage = () => {
                   </InputLeftElement>
                   <Input id='password' type='password'/>
                   <InputRightElement>
-                    <IconButton variant='link' aria-label='Mask password'
-                                icon={ <FaEye color='#A0AEC0'/> }/>
+                    <IconButton variant='link' aria-label='Mask password' icon={ <FaEye color='#A0AEC0'/> }/>
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
             </Stack>
+            <HStack direction='row' justify='space-between'>
+              <Checkbox>Remember Me</Checkbox>
+              <IconButton aria-label='Change color mode' icon={ <FaMoon color='#A0AEC0'/> } onClick={ toggleColorMode }/>
+            </HStack>
             <Button colorScheme='blue'>Login</Button>
           </Stack>
         </Box>
