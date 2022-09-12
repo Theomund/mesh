@@ -8,7 +8,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     router.push('/login')
-  }, [])
+  })
 
   return (
     <Flex width='100vw' height='100vh' alignContent='center' justifyContent='center'>
