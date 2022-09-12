@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import {Center, Container, Flex, Heading, Spinner} from "@chakra-ui/react";
+import { Center, Flex, Heading } from "@chakra-ui/react";
 
 const Dashboard: NextPage = () => {
   return (
